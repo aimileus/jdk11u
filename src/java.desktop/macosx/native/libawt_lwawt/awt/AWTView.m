@@ -25,6 +25,13 @@
 
 #import "jni_util.h"
 #import "CGLGraphicsConfig.h"
+#import "OSVersion.h"
+
+#import <JavaNativeFoundation/JavaNativeFoundation.h>
+#import <JavaRuntimeSupport/JavaRuntimeSupport.h>
+#import <Carbon/Carbon.h>
+
+#import "ThreadUtilities.h"
 #import "AWTView.h"
 #import "AWTWindow.h"
 #import "JavaComponentAccessibility.h"
@@ -53,10 +60,7 @@
 //#define EXTRA_DEBUG
 
 static BOOL shouldUsePressAndHold() {
-    static int shouldUsePressAndHold = -1;
-    if (shouldUsePressAndHold != -1) return shouldUsePressAndHold;
-    shouldUsePressAndHold = !isSnowLeopardOrLower();
-    return shouldUsePressAndHold;
+    return YES;
 }
 
 @implementation AWTView
